@@ -1,5 +1,138 @@
 /* Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Italiana&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Archivo+Narrow:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap");
+
 /* Resets */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
 /* Variables */
+:root {
+  --primary: #ffffff;
+  --secondary: #111111;
+}
+
 /* Base Styles */
+body {
+  background-color: var(--secondary);
+  color: var(--primary);
+}
+
+img {
+  width: 100%;
+}
+
+a {
+  color: var(--primary);
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 2.5rem;
+}
+
+header .menu {
+  display: flex;
+  gap: 0.75rem;
+}
+
+header .logo h1,
+.menu a {
+  font-family: "Archivo Narrow";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 1.5rem;
+  line-height: 32px;
+  letter-spacing: -0.02em;
+}
+
+main .content .text p {
+  font-family: "Italiana";
+  font-weight: 400;
+  letter-spacing: -0.04em;
+}
+
+main .content .text .thick_font {
+  font-family: "Archivo Narrow";
+  font-weight: 600;
+}
+
 /* Mobile Styles */
+main {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+main > * {
+  grid-column: 1 / -1;
+}
+
+main .content {
+  padding: 2.5rem;
+}
+
+main .content .text {
+  display: flex;
+  flex-direction: column;
+}
+
+main .content .text p {
+  font-size: 4.75rem;
+  line-height: 85px;
+}
+
+/* Samll Tablet Screen */
+@media screen and (min-width: 500px) {
+  main .content .text {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  main .content .text:nth-child(2) {
+    justify-content: space-around;
+  }
+}
+
+/* Large Tablet Screen */
+@media screen and (min-width: 790px) {
+  main {
+    grid-template-columns: repeat(8, 1fr);
+  }
+
+  main .content .text p {
+    font-size: 6.75rem;
+    line-height: 125px;
+  }
+}
+
+/* Laptop and Desktop Screen */
+@media screen and (min-width: 1000px) {
+  main {
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: auto 350px;
+  }
+
+  main .image {
+    grid-row: 1;
+  }
+
+  main > .content {
+    grid-row: 1 / span 2;
+    align-self: end;
+  }
+
+  main .content .text p {
+    font-size: 8.75rem;
+    line-height: 165px;
+  }
+}
